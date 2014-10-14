@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-us" manifest="pouchranjan.manifest">
+<head>
+	<meta charset="utf-8" />
+	<title>Ranjan
+</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    
+    <header>
+        <h1>Ranjan</h1>
+    </header>
+    
+    <main>
+        <p class="rel">
+            <button class="clicktarget" type="button" data-action="viewcryptcardset" data-show="#allcryptcards" data-hide="section:not(#allcryptcards)">Crypt</button>
+            <button class="clicktarget" type="button" data-action="viewlibrarycardset" data-show="#alllibrarycards" data-hide="section:not(#alllibrarycards)">Library</button>         	
+			<button class="clicktarget" type="button" data-show="#addnote" data-hide="section:not(#addnote)">Add Note</button>
+			<button class="clicktarget initialize" type="button">Initialize</button>
+        </p>
+        
+        <section id="addnote">
+        <form id="noteform" method="post" data-show="#allcryptcards" data-hide="#addnote">
+            <div class="hide" id="buttonwrapper">
+                <button class="clicktarget edit" type="button">Edit Note</button>
+                <button class="clicktarget delete" type="button">Delete Note</button>
+            </div>
+            <p>
+                <input type="hidden" id="_rev" name="_rev" value="">
+                <input type="hidden" id="_id"  name="_id" value="">
+                <label for="notetitle">Title:</label>
+                <input type="text" id="notetitle" name="notetitle" placeholder="Untitled Note" value="">
+            </p>
+            <p>
+                <label for="note">Note text:</label>
+                <textarea id="note" name="note" cols="50" rows="5" placeholder="Add note text here. This field is required." required></textarea>
+            </p>
+            <p>
+                <label for="tags">Tags:</label>
+                <input type="text" id="tags" name="tags">
+                <span class="guidance">Separate tags with a comma</span>
+            </p>
+            
+            <p class="rel">
+                <input type="file" id="attachment" name="attachment" class="abs">
+                <label for="attachment" class="btn">Attachment(s):</label>
+                <span class="filelist"></span>
+    	    </p>
+            
+            <div id="attachments" class="hide">
+            	<h2>Attachments</h2>
+    	    	<ul id="attachmentlist"></ul>
+    	    </div>
+    	    
+            <p>
+                <button type="submit">Save Note</button>
+            </p>
+        </form>
+       </section>
+        
+        <section id="allcryptcards" class="hide">
+            <h2>Crypt</h2>
+            <form id="searchcryptcards" method="get">
+                <p>
+                    <label for="q">Search</label> 
+                    <input type="search" id="q" name="q">
+                    <button type="submit">Search</button>
+                </p>
+            </form>
+            
+            
+            <table id="cryptcardlist">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Clan</th>
+                        <th>Clan</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>    
+        </section>  
+
+        <section id="alllibrarycards" class="hide">
+            <h2>Library</h2>
+            <form id="searchlibrarycards" method="get">
+                <p>
+                    <label for="q">Search</label> 
+                    <input type="search" id="q" name="q">
+                    <button type="submit">Search</button>
+                </p>
+            </form>
+            
+            
+            <table id="librarycardlist">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>    
+        </section>  
+	</main>
+    
+    <div id="syncdialog" class="dialog hide" data-action="close">
+        <div>
+            <button type="button" class="close" data-action="close">Close</button>
+            <h1>Loading data</h1>
+            <div class="progressbar">
+            	<progress max="100"></progress>
+            </div>
+        </div>
+    </div>
+    <div id="errordialog" class="dialog hide" data-action="close">
+        <div>
+            <button type="button" data-action="close"></button>
+            <h1>Error</h1>
+            <div class="msg"></div>
+        </div>
+    </div>
+    
+    <footer>
+    </footer>
+    
+    <script src="js/pouchdb-nightly.min.js"></script>
+    <script src="js/application.js"></script>
+    <script src="js/vtescrypt.csv.js"></script>
+    <script src="js/vteslib.csv.js"></script>
+</body>
+</html>

@@ -16,21 +16,16 @@
         <p class="rel">
             <button class="clicktarget" type="button" data-action="viewcryptcardset" data-show="#allcryptcards" data-hide="section:not(#allcryptcards)">Crypt</button>
             <button class="clicktarget" type="button" data-action="viewlibrarycardset" data-show="#alllibrarycards" data-hide="section:not(#alllibrarycards)">Library</button>         	
-			<button class="clicktarget" type="button" data-show="#addnote" data-hide="section:not(#addnote)">Add Note</button>
+			<button class="clicktarget" type="button" data-show="#viewcryptcard" data-hide="section:not(#viewcryptcard)">Add Note</button>
 			<button class="clicktarget initialize" type="button">Initialize</button>
         </p>
         
-        <section id="addnote">
-        <form id="noteform" method="post" data-show="#allcryptcards" data-hide="#addnote">
-            <div class="hide" id="buttonwrapper">
-                <button class="clicktarget edit" type="button">Edit Note</button>
-                <button class="clicktarget delete" type="button">Delete Note</button>
-            </div>
+        <section id="viewcryptcard">
+        <form id="cryptcardform" method="post" data-show="#allcryptcards" data-hide="#viewcryptcard">
             <p>
                 <input type="hidden" id="_rev" name="_rev" value="">
                 <input type="hidden" id="_id"  name="_id" value="">
-                <label for="notetitle">Title:</label>
-                <input type="text" id="notetitle" name="notetitle" placeholder="Untitled Note" value="">
+                <input type="text" id="cryptcardname" name="cryptcardname" value="">
             </p>
             <p>
                 <label for="note">Note text:</label>
